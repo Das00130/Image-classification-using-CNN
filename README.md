@@ -22,6 +22,9 @@ import random
 import os
 ```
 
+The images are stored in the directory in two folders training_set and test_set. These are loaded from the directory using flow_from_directory function.
+1000 images were used for training the model and 300 were used for validating the model.
+
 ```python
 
 '''Data Preprocessing including Data Augmentation and Training test split '''
@@ -35,6 +38,13 @@ test_set = test_datagen.flow_from_directory('test_set',target_size = (64, 64),ba
 
 ```python
 
+This model consists of four major steps Convolution, Pooling, Flattening and Full connection. After initializing the sequential layer, 
+we made a convolution layer in which we define the arguments, like the size of the image for example. We chose to use an image size of 64 X 64 
+to make it more efficient in terms of computational time. The pooling layer is used to reduce the size of the image and restore its important parts 
+during this process. The flatten layer converts the pixels into a one dimensional single vector. These vectors act as input to the fully connected layer, 
+where we have 128 neurons. We will use a rectifier function as the activation function. We will be using a sigmoid activation function as 
+it performs better on binary outputs. We chose Adam as optimizer. It is the advanced version of the Stochastic Gradient Descent (SGD) and is very popular 
+when it comes to deep leaning problems. ‘Binary_crossentropy’ was used as loss function given the fact our output is in binary format (0, 1). 
 
 '''Stepwise procedure of creating CNN model'''
 
@@ -69,6 +79,10 @@ model.fit_generator(training_set,steps_per_epoch = 110,epochs = 5,validation_dat
 
 ![png](images/training.PNG)
 
+The accuracy largely depends on training the model. As our model was trained with very less images hence we don't expect too high accuracy.
+Confusion matrix and classification report can be used to have a better idea of the performance of the model. 
+The distinction between Precision and Recall is often key when it comes to business decisions.
+
 ```python
 
 ''' Evaluation of the model'''
@@ -102,6 +116,8 @@ predictions = [labels[k] for k in pred_class]
 
 ![png](images/conversion.PNG)
 
+We test our model on a new image and it classified it correctly. 
+
 ```python
 
 ''' Testing the model on a new image '''
@@ -120,3 +136,8 @@ plt.title(name)
 plt.show()
 ```
 ![png](images/test.PNG)
+
+## About Used Dataset
+This is a Dogs and Cats dataset for image classification. This file contains 10000 images of Dogs and Cats.
+
+Link : https://www.kaggle.com/chetankv/dogs-cats-images
