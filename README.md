@@ -81,7 +81,6 @@ model.fit_generator(training_set,steps_per_epoch = 110,epochs = 5,validation_dat
 
 The accuracy largely depends on training the model. As our model was trained with very less images hence we don't expect too high accuracy.
 Confusion matrix and classification report can be used to have a better idea of the performance of the model. 
-The distinction between Precision and Recall is often key when it comes to business decisions.
 
 ```python
 
