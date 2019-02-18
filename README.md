@@ -36,8 +36,6 @@ training_set = train_datagen.flow_from_directory('training_set',target_size = (6
 test_set = test_datagen.flow_from_directory('test_set',target_size = (64, 64),batch_size = 20,class_mode = 'categorical')
 ```
 
-```python
-
 This model consists of four major steps Convolution, Pooling, Flattening and Full connection. After initializing the sequential layer, 
 we made a convolution layer in which we define the arguments, like the size of the image for example. We chose to use an image size of 64 X 64 
 to make it more efficient in terms of computational time. The pooling layer is used to reduce the size of the image and restore its important parts 
@@ -45,6 +43,8 @@ during this process. The flatten layer converts the pixels into a one dimensiona
 where we have 128 neurons. We will use a rectifier function as the activation function. We will be using a sigmoid activation function as 
 it performs better on binary outputs. We chose Adam as optimizer. It is the advanced version of the Stochastic Gradient Descent (SGD) and is very popular 
 when it comes to deep leaning problems. ‘Binary_crossentropy’ was used as loss function given the fact our output is in binary format (0, 1). 
+
+```python
 
 '''Stepwise procedure of creating CNN model'''
 
